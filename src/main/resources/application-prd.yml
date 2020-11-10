@@ -1,0 +1,14 @@
+server:
+  port : 8091
+spring:
+    devtools:
+        restart:
+            enabled: false
+        livereload:
+            enabled: false
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:5432/bestbuy
+        name:
+        username: bestbuy
+        password: J@m@1k@152

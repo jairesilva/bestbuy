@@ -1,0 +1,21 @@
+server:
+  port : 8081
+liquibase:
+   change-log: classpath:/db-scripts/db.changelog.xml
+spring:
+    profiles:
+        active: dev
+        include: swagger
+    devtools:
+        restart:
+            enabled: true
+        livereload:
+            enabled: false # we use gulp + BrowserSync for livereload
+    jackson:
+        serialization.indent_output: true
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:postgresql://localhost:6433/bestbuy
+        name: bestbuy
+        username: postgres
+        password: gloria
