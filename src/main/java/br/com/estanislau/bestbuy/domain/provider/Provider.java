@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
-@Table(name = "tbprovider", uniqueConstraints = @UniqueConstraint(columnNames = {"tbprovider_id", "tbprovider_user"}, name = "tb_provider" ))
+@Table(name = "tbprovider", uniqueConstraints = @UniqueConstraint(columnNames = {"tbprovider_id"}, name = "tb_provider" ))
 public class Provider implements Serializable{
 
 	private static final long serialVersionUID = 1L;

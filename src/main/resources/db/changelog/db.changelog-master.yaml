@@ -1,0 +1,9 @@
+url: jdbc:postgresql://localhost:6433/bestbuy
+username: postgres
+password: gloria
+driver: org.postgresql.Driver
+
+databaseChangeLog:
+  - include:
+      file: false
+      relativeToChangelogFile: true

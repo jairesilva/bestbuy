@@ -17,11 +17,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.apache.commons.validator.routines.EmailValidator;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import br.com.estanislau.bestbuy.commons.exception.NotAllowException;
+import br.com.estanislau.bestbuy.domain.utils.MailValidator;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -36,7 +35,7 @@ import lombok.ToString;
 @Table(name = "tbemailprovider", uniqueConstraints = @UniqueConstraint(columnNames = { "tbemailprovider_email",
 		"tbprovider_id" }, name = "tbemailprovider_email_provider_id_UK"))
 public class EmailProvider implements Serializable {
-	
+
 	private static final long serialVersionUID = -9166642389320387001L;
 
 	/**
@@ -54,11 +53,11 @@ public class EmailProvider implements Serializable {
 
 	private static void validateEmail(final String email) {
 		checkNotNull(email, "Email cannot be null on an EmailProvider.");
-		if (!EmailValidator.getInstance().isValid(email)) {
+		if (!MailValidator.validaEmail(email)) {
 			throw new NotAllowException("The e-mail: ".concat(email).concat(" is not valid."));
 		}
 	}
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "tbemailprovider_id")
