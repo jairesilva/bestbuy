@@ -10,6 +10,7 @@ public interface UserFacade {
 	/**
 	 * Update User
 	 * 
+	 * @param Id Long User 
 	 * @param UserDTO
 	 * @return UserDTO
 	 */
@@ -21,7 +22,7 @@ public interface UserFacade {
 	 * @param idUser Long
 	 * @return UserDTO
 	 */
-	UserDTO getOne(final Long idUser);
+	UserDTO findById(final Long idUser);
 	
 	
 	/**
@@ -39,7 +40,7 @@ public interface UserFacade {
      * @return UserDTO
      * @throws IOException
      */
-    public UserDTO createUser(final UserDTO userDTO) throws IOException;
+    public UserDTO addUser(final UserDTO userDTO) throws IOException;
 
     /**
     *
