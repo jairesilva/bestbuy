@@ -18,15 +18,13 @@ public class UserFacadeImpl implements UserFacade{
 	private final UserService userService;
 
 	@Override
-	public UserDTO update(UserDTO userDTO) {
-		// TODO Auto-generated method stub
-		return null;
+	public UserDTO update(final UserDTO userDTO) {
+		return this.userService.update(userDTO);
 	}
 
 	@Override
-	public UserDTO getOne(Long idUser) {
-		// TODO Auto-generated method stub
-		return null;
+	public UserDTO findById(Long idUser) {
+		return this.userService.findById(idUser);
 	}
 
 	@Override
@@ -35,14 +33,13 @@ public class UserFacadeImpl implements UserFacade{
 	}
 
 	@Override
-	public UserDTO createUser(UserDTO userDTO) throws IOException {
-		return this.userService.createUser(userDTO);
+	public UserDTO addUser(UserDTO userDTO) throws IOException {
+		return this.userService.addUser(userDTO);
 	}
 
 	@Override
 	public Boolean deleteUser(Long idUser) throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.userService.deleteUser(idUser);
 	}
 	
 
