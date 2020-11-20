@@ -44,13 +44,4 @@
     <changeSet author="jaire (generated)" id="1605315939122-3">
         <dropSequence sequenceName="hibernate_sequence"/>
     </changeSet>
-    <changeSet author="jaire (generated)" id="1605318146412-1">
-        <dropForeignKeyConstraint baseTableName="tbuser" constraintName="user_parent_fkey"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605318146412-2">
-        <dropTable tableName="tbuser"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605318146412-3">
-        <dropSequence sequenceName="hibernate_sequence"/>
-    </changeSet>
 </databaseChangeLog>

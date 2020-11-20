@@ -2,7 +2,6 @@ package br.com.estanislau.bestbuy.interfaces.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -21,17 +20,7 @@ public class UserDTO implements Serializable {
 	private Long id;
 	private String name;
 	private UserType userType;
-	private Boolean status;
 	private String userName;
 	private LocalDateTime created;
 	private String password;
-	
-	public void updateCreated(LocalDateTime created) {
-		if (Objects.isNull(created)) {
-			return;
-		}
-		
-		this.created = created;
-	}
-	
 }

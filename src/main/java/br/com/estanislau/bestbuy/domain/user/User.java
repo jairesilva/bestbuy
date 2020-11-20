@@ -13,11 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import br.com.estanislau.bestbuy.interfaces.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Entity
 @Getter
@@ -46,18 +44,9 @@ public class User implements Serializable{
 	@Column(name = "tbuser_status")
 	private Boolean status;
 	
-	@Column(name = "tbuser_created", nullable = false, columnDefinition = "TIMESTAMP")
-	@NonNull
+	@Column(name = "tbuser_created")
 	private LocalDateTime created;
 
 	@Column(name = "tbuser_password")
 	private String password;
-	
-	public void update(UserDTO userDTO) {
-		this.name = userDTO.getName();
-		this.userName = userDTO.getUserName();
-		this.userType = userDTO.getUserType();
-		this.status = userDTO.getStatus();
-		this.password = userDTO.getPassword();
-	}
 }
