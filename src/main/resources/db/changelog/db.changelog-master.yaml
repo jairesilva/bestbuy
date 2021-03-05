@@ -5,5 +5,5 @@ driver: org.postgresql.Driver
 
 databaseChangeLog:
   - include:
-      file: false
+      file: true
       relativeToChangelogFile: true

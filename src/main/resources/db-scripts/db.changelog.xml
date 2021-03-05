@@ -7,41 +7,5 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 	<includeAll path="db-scripts/scripts/" />
-
-    <changeSet author="jaire (generated)" id="1605275805498-1">
-        <dropForeignKeyConstraint baseTableName="tbuser" constraintName="user_parent_fkey"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605275805498-2">
-        <dropTable tableName="tbuser"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605275805498-3">
-        <dropSequence sequenceName="hibernate_sequence"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605275979304-1">
-        <dropForeignKeyConstraint baseTableName="tbuser" constraintName="user_parent_fkey"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605275979304-2">
-        <dropTable tableName="tbuser"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605275979304-3">
-        <dropSequence sequenceName="hibernate_sequence"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605276190479-1">
-        <dropForeignKeyConstraint baseTableName="tbuser" constraintName="user_parent_fkey"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605276190479-2">
-        <dropTable tableName="tbuser"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605276190479-3">
-        <dropSequence sequenceName="hibernate_sequence"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605315939122-1">
-        <dropForeignKeyConstraint baseTableName="tbuser" constraintName="user_parent_fkey"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605315939122-2">
-        <dropTable tableName="tbuser"/>
-    </changeSet>
-    <changeSet author="jaire (generated)" id="1605315939122-3">
-        <dropSequence sequenceName="hibernate_sequence"/>
-    </changeSet>
+	
 </databaseChangeLog>
