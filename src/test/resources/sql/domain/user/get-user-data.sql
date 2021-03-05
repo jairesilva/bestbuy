@@ -1,0 +1,2 @@
+INSERT INTO tbuser(tbuser_id, tbuser_created, tbuser_login, tbuser_name, tbuser_password, tbuser_status, tbuser_type)
+VALUES(1, '02/03/2021', 'jairesilva', 'Jair Estanislau da Silva', '1q2w3e4r', true, 'MANAGER');

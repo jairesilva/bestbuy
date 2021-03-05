@@ -6,46 +6,47 @@ import java.util.List;
 import br.com.estanislau.bestbuy.interfaces.dto.UserDTO;
 
 public interface UserFacade {
-	
+
 	/**
-	 * Update User
-	 * 
+	 * List all users by status
+	 *
+	 * @param status
+	 * @return The {@link UserDTO}
+	 */
+	public List<UserDTO> listUsersByStatus(final Boolean status);
+
+	/**
+	 * Create new User
+	 *
 	 * @param UserDTO
 	 * @return UserDTO
+	 * @throws IOException
 	 */
-	UserDTO update(final UserDTO userDTO);
-	
+	public UserDTO createUser(final UserDTO userDTO) throws IOException;
+
 	/**
-	 * Get one User
-	 * 
-	 * @param idUser Long
+	 * Update User
+	 *
+	 * @param UserDTO
 	 * @return UserDTO
+	 * @throws IOException
 	 */
-	UserDTO getOne(final Long idUser);
-	
-	
+	public UserDTO updateUser(final UserDTO userDTO) throws IOException;
+
 	/**
-     * List all users by status
-     *
-     * @param status
-     * @return The {@link UserDTO}
-     */
-    public List<UserDTO> listUsersByStatus(final Boolean status);
+	 *
+	 * @param idUser
+	 * @return True
+	 * @throws IOException
+	 */
+	public Boolean deleteUser(final Long idUser) throws IOException;
 
-    /**
-     * Create new User
-     *
-     * @param UserDTO
-     * @return UserDTO
-     * @throws IOException
-     */
-    public UserDTO createUser(final UserDTO userDTO) throws IOException;
+	/**
+	 *
+	 * @param idUser
+	 * @return UserDTO
+	 * @throws IOException
+	 */
+	public UserDTO findUserById(final Long idUser) throws IOException;
 
-    /**
-    *
-    * @param idUser
-    * @return True
-    * @throws IOException
-    */
-   public Boolean deleteUser(final Long idUser) throws IOException;
 }

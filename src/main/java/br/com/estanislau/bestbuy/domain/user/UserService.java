@@ -9,23 +9,6 @@ import br.com.estanislau.bestbuy.interfaces.dto.UserDTO;
 public interface UserService extends Serializable{
 	
 	/**
-	 * Update User
-	 * 
-	 * @param UserDTO
-	 * @return UserDTO
-	 */
-	public UserDTO update(final UserDTO userDTO);
-	
-	/**
-	 * Get one User
-	 * 
-	 * @param idUser Long
-	 * @return UserDTO
-	 */
-	public UserDTO getOne(final Long idUser);
-	
-	
-	/**
      * List all users by status
      *
      * @param status
@@ -43,6 +26,15 @@ public interface UserService extends Serializable{
     public UserDTO createUser(final UserDTO userDTO) throws IOException;
 
     /**
+     * Update User
+     *
+     * @param UserDTO
+     * @return UserDTO
+     * @throws IOException
+     */
+    public UserDTO updateUser(final UserDTO userDTO) throws IOException;
+    
+    /**
     *
     * @param idUser
     * @return True
@@ -50,4 +42,12 @@ public interface UserService extends Serializable{
     */
    public Boolean deleteUser(final Long idUser) throws IOException;
 
+   /**
+   *
+   * @param idUser
+   * @return UserDTO
+   * @throws IOException
+   */
+  public UserDTO findUserById(final Long idUser) throws IOException;
+  
 }

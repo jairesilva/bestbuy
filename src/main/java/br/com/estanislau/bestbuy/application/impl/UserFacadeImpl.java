@@ -13,21 +13,9 @@ import lombok.AllArgsConstructor;
 
 @Component
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class UserFacadeImpl implements UserFacade{
-	
+public class UserFacadeImpl implements UserFacade {
+
 	private final UserService userService;
-
-	@Override
-	public UserDTO update(UserDTO userDTO) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public UserDTO getOne(Long idUser) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<UserDTO> listUsersByStatus(Boolean status) {
@@ -40,10 +28,18 @@ public class UserFacadeImpl implements UserFacade{
 	}
 
 	@Override
-	public Boolean deleteUser(Long idUser) throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+	public UserDTO updateUser(UserDTO userDTO) throws IOException {
+		return this.userService.updateUser(userDTO);
 	}
-	
+
+	@Override
+	public Boolean deleteUser(Long idUser) throws IOException {
+		return this.userService.deleteUser(idUser);
+	}
+
+	@Override
+	public UserDTO findUserById(Long idUser) throws IOException {
+		return this.userService.findUserById(idUser);
+	}
 
 }

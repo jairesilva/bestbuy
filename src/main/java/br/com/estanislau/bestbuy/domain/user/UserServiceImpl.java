@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import br.com.estanislau.bestbuy.commons.exception.NotAllowException;
 import br.com.estanislau.bestbuy.interfaces.dto.UserDTO;
 import lombok.AllArgsConstructor;
 
@@ -21,18 +22,6 @@ public class UserServiceImpl implements UserService {
 
 	private final UserRepository userRepository;
 	private final ObjectMapper objectMapper;
-
-	@Override
-	public UserDTO update(UserDTO userDTO) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public UserDTO getOne(Long idUser) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<UserDTO> listUsersByStatus(Boolean status) {
@@ -48,14 +37,43 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO createUser(UserDTO userDTO) throws IOException {
 		checkNotNull(userDTO, "User cannot be null.");
+		checkNotNull(userDTO.getName(), "Name of the user cannot be null.");
+		checkNotNull(userDTO.getLogin(), "Username cannot be null.");
+		checkNotNull(userDTO.getUserType(), "User type cannot be null.");
+		checkNotNull(userDTO.getPassword(), "Password cannot be null.");
+
+		userDTO.updateCreated(userDTO);
+		userDTO.encriptPassword(userDTO);
+
 		return this.objectMapper.convertValue(
 				this.userRepository.save(this.objectMapper.convertValue(userDTO, User.class)), UserDTO.class);
 	}
 
 	@Override
+	public UserDTO updateUser(UserDTO userDTO) throws IOException {
+		checkNotNull(userDTO, "User cannot be null.");
+		checkNotNull(userDTO.getId(), "User id cannot be null.");
+		checkNotNull(userDTO.getLogin(), "UserName cannot be null.");
+		checkNotNull(userDTO.getUserType(), "User Type cannot be null.");
+
+		final User user = this.userRepository.findById(userDTO.getId())
+				.orElseThrow(() -> new NotAllowException("User not found."));
+		user.update(objectMapper.convertValue(userDTO, User.class));
+
+		return this.objectMapper.convertValue(this.userRepository.save(user), UserDTO.class);
+	}
+
+	@Override
 	public Boolean deleteUser(Long idUser) throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+		final User user = this.userRepository.findById(idUser)
+				.orElseThrow(() -> new NotAllowException("User not found."));
+		this.userRepository.delete(user);
+		return true;
+	}
+
+	@Override
+	public UserDTO findUserById(Long idUser) throws IOException {
+		return objectMapper.convertValue(this.userRepository.findById(idUser), UserDTO.class);
 	}
 
 }
